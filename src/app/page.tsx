@@ -8,7 +8,47 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import About from "@/components/About"
+import Link from "next/link"
 
+
+const searchCards = [
+  { 
+    icon: <Building2 className="w-6 h-6" />, 
+    title: 'Hotels in Goa 🆕', 
+    date: '18 - 19 May · 2 guests',
+    href: '/hotel1'
+  },
+  { 
+    icon: <Plane className="w-6 h-6" />, 
+    title: 'New Delhi → Mumbai 🆕', 
+    date: 'Next week · 1 traveller',
+    href: '/flight1'
+  },
+  { 
+    icon: <Plane className="w-6 h-6" />, 
+    title: 'Bengaluru → Pune 🆕', 
+    date: 'Next week · 1 traveller',
+    href: '/flight2'
+  },
+  { 
+    icon: <Plane className="w-6 h-6" />, 
+    title: 'Mumbai → London', 
+    date: 'Next week · 2 travellers',
+    href: ''
+  },
+  { 
+    icon: <Plane className="w-6 h-6" />, 
+    title: 'Tokyo → London', 
+    date: 'Next week · 3 travellers',
+    href: ''
+  },
+  { 
+    icon: <Plane className="w-6 h-6 " />, 
+    title: 'Abu Dhabi → Hyderabad', 
+    date: 'Next week · 2 travellers',
+    href: ''
+  },
+];
 
 export default function Home() {
   return (
@@ -90,36 +130,26 @@ export default function Home() {
           </Card>
         </div>
 
-        {/* Popular Searches */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-500 mb-4">POPULAR SEARCHES</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {/* Search Cards */}
-            {[
-              { icon: <Building2 className="h-5 w-5" />, title: 'Hotels in Goa', date: '18 - 19 May · 2 guests' },
-              
-              { icon: <Plane className="h-5 w-5" />, title: 'New Delhi → Mumbai', date: 'Next week · 1 traveller' },
-              { icon: <Plane className="h-5 w-5" />, title: 'Bengaluru → Mumbai', date: 'Next week · 2 travellers' },
-              { icon: <Plane className="h-5 w-5" />, title: 'Mumbai → London', date: 'Next week · 1 traveller' },
-              { icon: <Plane className="h-5 w-5" />, title: 'Tokyo → London', date: 'Next week · 3 travellers' },
-              { icon: <Plane className="h-5 w-5" />, title: 'Abu Dhabi → Hyderabad', date: 'Next week · 4 travellers' },
-              
-            ].map(({ icon, title, date }, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 border rounded-lg p-4 cursor-pointer hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="text-gray-600">{icon}</div>
-                <div>
-                  <div className="font-medium">{title}</div>
-                  <div className="text-xs text-gray-500">{date}</div>
-                </div>
+      <h3 className="text-sm font-semibold text-gray-500 mb-4">POPULAR SEARCHES</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {/* Search Cards */}
+        {searchCards.map(({ icon, title, date, href }, i) => (
+          <Link href={href} key={i}>
+            <div
+              className="flex items-center gap-3 border rounded-lg p-4 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+            >
+              <div className="text-gray-600">{icon}</div>
+              <div>
+                <div className="font-medium">{title}</div>
+                <div className="text-xs text-gray-500">{date}</div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </Link>
+        ))}
       </div>
-
+    </div>
+    </div>
       {/* Right Sidebar */}
       <div className="w-full md:w-1/4">
         {/* Cleartrip for work */}
