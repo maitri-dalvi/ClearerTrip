@@ -60,7 +60,7 @@ const Header = () => {
     title: "🎯 Best in Best",
     
     description: "Smart warnings about seasonal weather risks for destinations yet to be planned.",
-    link: "/bestprices",
+    link: "/best",
   },
   {
     title: "🌍 No missing out",
