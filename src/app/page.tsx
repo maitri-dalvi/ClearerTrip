@@ -14,9 +14,9 @@ import Link from "next/link"
 const searchCards = [
   { 
     icon: <Building2 className="w-6 h-6" />, 
-    title: 'Hotels in Goa 🆕', 
+    title: 'Hotels in Goa', 
     date: '18 - 19 May · 2 guests',
-    href: '/hotel1'
+    href: ''
   },
   { 
     icon: <Plane className="w-6 h-6" />, 
