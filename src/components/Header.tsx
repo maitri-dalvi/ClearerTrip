@@ -63,14 +63,14 @@ const Header = () => {
     link: "/best",
   },
   {
-    title: "🌍 No missing out",
+    title: "🌍 No FOMO",
     description: "Manage your belongings and travel essentials efficiently through an AI powered chatbot.",
     link: "/packing",
   },
   {
-    title: "🍁 Leaf the City",
+    title: "🧩 Bingo",
     
-    description: "Compare all major modes of transport based on price and eco-friendliness.",
+    description: "Gamified travel experiences to check off your bucket list and gain some exclusive rewards.",
     link: "/eco",
   },
 ].map(({ title, description, link }) => (
