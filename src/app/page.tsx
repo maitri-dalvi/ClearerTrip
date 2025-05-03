@@ -1,103 +1,216 @@
-import Image from "next/image";
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Plane, Building2 } from "lucide-react"
+import DiscountCard from "../components/DiscountCard"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Footer from "@/components/Footer"
+import Header from "@/components/Header"
+import About from "@/components/About"
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-white">
+      {/* Header */}
+      <Header />
+      
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      {/* Main Content */}
+<div className="w-full max-w-[1460px] mx-auto p-4">
+  {/* Hero Section */}
+  <div className="mb-8">
+    <div className="mb-6">
+      <h1 className="text-3xl font-bold mb-1">So, where to?</h1>
+      <p className="text-gray-600">Plan your trip with us</p>
     </div>
-  );
+
+    <div className="flex flex-col md:flex-row gap-6">
+      {/* Left Content */}
+      <div className="w-full md:w-3/4">
+        {/* Travel Options Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
+          {/* Flights Card */}
+          <Card className="border rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-500 h-55 w-50 relative">
+            <CardContent className="p-4">
+              <h3 className="text-lg font-semibold mb-1">Flights</h3>
+              <p className="text-xs text-gray-600 mb-4">
+                Get up to 25% off on domestic and international flights
+              </p>
+              <div className="absolute bottom-0 right-0">
+                <Image src="/flights.png" alt="Flights" width={120} height={80} className="object-contain" />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Hotels Card */}
+          <Card className="border rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-500 h-55 w-50 relative">
+            <CardContent className="p-4">
+              <h3 className="text-lg font-semibold mb-1">Hotels</h3>
+              <p className="text-xs text-gray-600 mb-4">Up to 30% on 10L+ stays</p>
+              <div className="absolute bottom-0 right-0">
+                <Image src="/hotels.png" alt="Hotels" width={120} height={80} className="object-contain" />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Buses Card */}
+          <Card className="border rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-500 h-55 w-50 relative">
+            <CardContent className="p-4">
+              <h3 className="text-lg font-semibold mb-1">Buses</h3>
+              <p className="text-xs text-gray-600 mb-4">Flat 12% off on first booking</p>
+              <div className="absolute bottom-0 right-0">
+                <Image src="/buses.png" alt="Buses" width={120} height={80} className="object-contain" />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Trains Card */}
+          <Card className="border rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-500 h-55 w-50 relative">
+            <CardContent className="p-4">
+              <h3 className="text-lg font-semibold mb-1">Trains</h3>
+              <p className="text-xs text-gray-600 mb-4">New on Cleartrip</p>
+              <div className="absolute bottom-0 right-0">
+                <Image src="/trains.png" alt="Trains" width={120} height={80} className="object-contain" />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Packages Card */}
+          <Card className="border rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-500 h-55 w-50 relative">
+            <CardContent className="p-4 pb-20">
+              <h3 className="text-lg font-semibold mb-1">Packages</h3>
+              <p className="text-xs text-gray-600 mb-4">
+                Thailand, Dubai, Kashmir and more starting ₹3999
+              </p>
+              <div className="absolute bottom-0 right-0">
+                <Image src="/packages.png" alt="Packages" width={120} height={80} className="object-contain" />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Popular Searches */}
+        <div>
+          <h3 className="text-sm font-semibold text-gray-500 mb-4">POPULAR SEARCHES</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {/* Search Cards */}
+            {[
+              { icon: <Building2 className="h-5 w-5" />, title: 'Hotels in Goa', date: '18 - 19 May · 2 guests' },
+              
+              { icon: <Plane className="h-5 w-5" />, title: 'New Delhi → Mumbai', date: 'Next week · 1 traveller' },
+              { icon: <Plane className="h-5 w-5" />, title: 'Bengaluru → Mumbai', date: 'Next week · 2 travellers' },
+              { icon: <Plane className="h-5 w-5" />, title: 'Mumbai → London', date: 'Next week · 1 traveller' },
+              { icon: <Plane className="h-5 w-5" />, title: 'Tokyo → London', date: 'Next week · 3 travellers' },
+              { icon: <Plane className="h-5 w-5" />, title: 'Abu Dhabi → Hyderabad', date: 'Next week · 4 travellers' },
+              
+            ].map(({ icon, title, date }, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-3 border rounded-lg p-4 cursor-pointer hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="text-gray-600">{icon}</div>
+                <div>
+                  <div className="font-medium">{title}</div>
+                  <div className="text-xs text-gray-500">{date}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Right Sidebar */}
+      <div className="w-full md:w-1/4">
+        {/* Cleartrip for work */}
+        <div className="bg-blue-50 p-4 rounded-lg mb-6 cursor-pointer border-1">
+          <div className="flex items-center justify-between mb-0">
+            <div className="text-base font-semibold">Cleartrip for work</div>
+            <div className="rounded-full flex items-center justify-center">
+              {/* Optional arrow image */}
+            </div>
+          </div>
+          <div className="text-sm text-[#11A670]">20% extra off for flight bookings</div>
+        </div>
+
+        {/* Discount Card */}
+        <DiscountCard />
+      </div>
+    </div>
+  </div>
+
+  {/* Offers */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-14 cursor-pointer">
+  <Card className="p-0 shadow-none border-none">
+    <img src="c1.png" alt="Offer 1" className="w-full h-auto" />
+  </Card>
+
+  <Card className="p-0 shadow-none border-none">
+    <img src="/c2.png" alt="Offer 2" className="w-full h-auto" />
+  </Card>
+
+  <Card className="p-0 shadow-none border-none">
+    <img src="/c3.png" alt="Offer 3" className="w-full h-auto" />
+  </Card>
+
+  <Card className="p-0 shadow-none border-none">
+    <img src="/c4.png" alt="Offer 4" className="w-full h-auto" />
+  </Card>
+</div>
+
+
+    {/* HSBC Banner */}
+<div className="relative rounded-lg overflow-hidden mb-12 h-32 md:h-90 w-full max-w-[1460px] mx-auto cursor-pointer">
+  <Image
+    src="/hsbc.png"
+    alt="HSBC Card"
+    fill
+    className="object-cover"
+  />
+</div>
+
+
+{/* Popular Destinations */}
+<div className="mb-14">
+  <h2 className="text-2xl font-semibold mb-8">Popular destinations</h2>
+  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 cursor-pointer">
+    {[
+      { city: "Goa", img: "/goa.png" },
+      { city: "Delhi", img: "/delhi.png" },
+      { city: "Bangalore", img: "/bangalore.png" },
+      { city: "Jaipur", img: "/jaipur.png" },
+      { city: "Pattaya", img: "/pattaya.png" },
+    ].map(({ city, img }, index) => (
+      <div
+        key={index}
+        className="relative rounded-lg overflow-hidden h-80 p-0 border-none shadow-none"
+      >
+        <Image
+          src={img}
+          alt={city}
+          width={200}
+          height={200}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 p-3 text-white">
+          <div className="font-bold">{city}</div>
+          <div className="text-xs">2000+ Properties</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+        {/* About Cleartrip */}
+        <About />
+      </div>
+      {/* Footer */}
+      <Footer />
+    </main>
+  )
 }
+
+
+
