@@ -15,7 +15,6 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* Header */}
       <Header />
-      
 
       {/* Main Content */}
 <div className="w-full max-w-[1460px] mx-auto p-4">

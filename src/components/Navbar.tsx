@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Button } from './ui/button';
 import Link from 'next/link';
 
-const Header = () => {
+const Navbar = () => {
   return (
     <div className="border-b sticky top-0 z-50 bg-white">
       <div className="container mx-auto flex items-center justify-between p-4 w-full max-w-[1460px]">
@@ -137,17 +137,11 @@ const Header = () => {
             />
             <span className="hover:text-orange-500 cursor-pointer">Support</span>
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-sm justify-center items-center pt-4 pb-4 pl-13 pr-13 border-black cursor-pointer"
-          >
-            <span className="text-black font-semibold cursor-pointer">Log in</span>
-          </Button>
+          
         </div>
       </div>
     </div>
   );
 };
 
-export default Header;
+export default Navbar;
