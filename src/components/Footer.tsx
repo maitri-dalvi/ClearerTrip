@@ -5,9 +5,10 @@ const Footer = () => {
   return (
     <div className="bg-gray-100 border-t border-gray-200 mt-2">
       <div className="container mx-auto w-full max-w-[1460px] px-4 py-6">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-4">
+        {/* Top section - Logo, Navigation, Social */}
+        <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-between md:items-center mb-6">
           {/* Logo and Company Line */}
-          <div className="flex items-center gap-2 mb-4 md:mb-0">
+          <div className="flex items-center gap-2 justify-center md:justify-start">
             <Image
               src="/cleartrip-logo.png"
               alt="Cleartrip Logo"
@@ -19,19 +20,8 @@ const Footer = () => {
             <div className="text-xs text-gray-500 cursor-pointer">A <span className="font-bold italic cursor-pointer">Flipkart</span> Company</div>
           </div>
     
-          {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">About Us</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">Careers</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">FAQs</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">Support</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">Collections</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">Cleartrip for Business</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-orange-500 transition-colors">Gift Cards</a>
-          </div>
-    
-          {/* Social Media Icons */}
-          <div className="flex items-center gap-4">
+          {/* Social Media Icons - Moved up in mobile layout */}
+          <div className="flex items-center gap-4 justify-center md:justify-end order-3 md:order-3">
             <div className="text-sm text-gray-500">Connect</div>
             <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -55,18 +45,31 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        
+        {/* Navigation Links - Centered and responsive */}
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 mb-6 md:mb-6 px-2">
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">About Us</a>
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">Careers</a>
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">FAQs</a>
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">Support</a>
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">Collections</a>
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">Cleartrip for Business</a>
+          <a href="#" className="text-xs sm:text-sm text-gray-600 hover:text-orange-500 transition-colors">Gift Cards</a>
+        </div>
     
         {/* Copyright and Legal Links */}
-        <div className="text-xs text-gray-500 flex flex-col md:flex-row justify-center items-center gap-2 border-t border-gray-200 pt-4">
-          <div>© 2025 Cleartrip Pvt. Ltd.</div>
-          <div className="hidden md:block">•</div>
-          <a href="#" className="hover:text-orange-500 transition-colors">Privacy</a>
-          <div className="hidden md:block">•</div>
-          <a href="#" className="hover:text-orange-500 transition-colors">Security</a>
-          <div className="hidden md:block">•</div>
-          <a href="#" className="hover:text-orange-500 transition-colors">Terms of Use</a>
-          <div className="hidden md:block">•</div>
-          <a href="#" className="hover:text-orange-500 transition-colors">Grievance Redressal</a>
+        <div className="text-xs text-gray-500 flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-2 border-t border-gray-200 pt-4">
+          <div className="text-center sm:text-left">© 2025 Cleartrip Pvt. Ltd.</div>
+          <div className="hidden sm:block">•</div>
+          <div className="flex flex-wrap justify-center gap-x-2 gap-y-1">
+            <a href="#" className="hover:text-orange-500 transition-colors">Privacy</a>
+            <span className="hidden sm:inline">•</span>
+            <a href="#" className="hover:text-orange-500 transition-colors">Security</a>
+            <span className="hidden sm:inline">•</span>
+            <a href="#" className="hover:text-orange-500 transition-colors">Terms of Use</a>
+            <span className="hidden sm:inline">•</span>
+            <a href="#" className="hover:text-orange-500 transition-colors">Grievance Redressal</a>
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function SavingsCard() {
   return (
-    <div className="w-full max-w-[360px] bg-blue-50 p-3 rounded-xl shadow-md border">
+    <div className="w-full max-w-[360px] bg-blue-50 p-3 rounded-xl shadow-md border mb-0">
       <div className="flex flex-col items-center">
         <div className="rounded-full bg-gray-200 p-2 mb-2">
           <Image src="/unlock.png" alt="lock" width={22} height={22} />

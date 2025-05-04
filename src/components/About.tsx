@@ -87,7 +87,7 @@ const About = () => {
 {/* FAQ */}
 <h1 className="font-bold text-xl mb-5">FAQs</h1>
 
-<div className="mb-8">
+<div className="mb-10">
   <Accordion type="multiple" className="w-full space-y-3">
 
     <AccordionItem value="item-1" className="border rounded-lg overflow-hidden hover:shadow-md transition-all duration-200">
