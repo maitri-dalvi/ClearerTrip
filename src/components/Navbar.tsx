@@ -10,13 +10,15 @@ const Navbar = () => {
     <div className="border-b sticky top-0 z-50 bg-white">
       <div className="container mx-auto flex items-center justify-between p-4 w-full max-w-[1460px]">
         <div className="flex items-center gap-2">
-          <Image
-            src="/cleartrip-logo.png"
-            alt="Cleartrip Logo"
-            width={125}
-            height={17}
-            className="h-6 cursor-pointer"
-          />
+        <Link href="/" passHref>
+      <Image
+        src="/cleartrip-logo.png"
+        alt="Cleartrip Logo"
+        width={125}
+        height={17}
+        className="h-6 cursor-pointer"
+      />
+    </Link>
           <div className="text-xs text-muted-foreground">|</div>
           <div className="text-xs text-muted-foreground cursor-pointer">
             A <span className="font-bold italic cursor-pointer">Flipkart</span> Company
