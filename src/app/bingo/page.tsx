@@ -319,7 +319,7 @@ export default function TravelBingo(): JSX.Element {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-center mb-6">Track your travel adventures and earn rewards!</p>
+            
             <form onSubmit={(e: FormEvent<HTMLFormElement>) => {
               e.preventDefault()
               const target = e.target as typeof e.target & {
