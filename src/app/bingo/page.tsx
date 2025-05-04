@@ -442,7 +442,7 @@ export default function TravelBingo(): JSX.Element {
                   variant="outline" 
                   size="sm"
                   onClick={() => setView('addCategory')}
-                  className="flex items-center gap-1"
+                  className="flex items-center gap-1 "
                 >
                   <Plus size={16} /> Add Goal
                 </Button>
@@ -728,7 +728,7 @@ export default function TravelBingo(): JSX.Element {
                   >
                     Cancel
                   </Button>
-                  <Button type="submit">
+                  <Button type="submit" className='bg-gradient-to-r from-indigo-500 to-purple-500'>
                     Add Goal
                   </Button>
                 </div>
