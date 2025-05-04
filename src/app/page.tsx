@@ -180,21 +180,31 @@ export default function Home() {
 
         {/* Offers */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8 sm:mb-14 cursor-pointer">
-          <Card className="p-0 shadow-none border-none">
-            <img src="/c1.png" alt="Offer 1" className="w-full h-auto rounded-lg" />
-          </Card>
-
+        <Link href="/sbi" passHref>
+      <Card className="p-0 shadow-none border-none cursor-pointer transition-transform hover:scale-[1.01]">
+        <img
+          src="/c1.png"
+          alt="Offer 1"
+          className="w-full h-auto rounded-lg"
+        />
+      </Card>
+    </Link>
+    <Link href="/sbi" passHref>
           <Card className="p-0 shadow-none border-none">
             <img src="/c2.png" alt="Offer 2" className="w-full h-auto rounded-lg" />
           </Card>
+          </Link>
 
+          <Link href="/sbi" passHref>
           <Card className="p-0 shadow-none border-none">
             <img src="/c3.png" alt="Offer 3" className="w-full h-auto rounded-lg" />
           </Card>
-
+          </Link>
+          <Link href="/sbi" passHref>
           <Card className="p-0 shadow-none border-none">
             <img src="/c4.png" alt="Offer 4" className="w-full h-auto rounded-lg" />
           </Card>
+          </Link>
         </div>
 
         {/* HSBC Banner */}
