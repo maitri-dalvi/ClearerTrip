@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -177,7 +179,7 @@ export default function Home() {
         </div>
 
         {/* Offers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 sm:mb-14 cursor-pointer">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8 sm:mb-14 cursor-pointer">
           <Card className="p-0 shadow-none border-none">
             <img src="/c1.png" alt="Offer 1" className="w-full h-auto rounded-lg" />
           </Card>

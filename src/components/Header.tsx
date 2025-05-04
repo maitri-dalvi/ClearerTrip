@@ -100,7 +100,6 @@ const Header = () => {
               <span className="group-hover:text-white">Smart Travel</span>
             </Button>
 
-            {/* Enhanced Dropdown */}
             <div
               className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[90vw] max-w-[950px] bg-blue-50 border shadow-2xl rounded-3xl p-4 lg:p-6 z-50 transition-all duration-300 ease-in-out group-hover:flex hidden"
               onMouseEnter={(e) => e.currentTarget.classList.add("flex")}
@@ -151,7 +150,7 @@ const Header = () => {
           <Button
             variant="outline"
             size="sm"
-            className="text-xs lg:text-sm px-3 lg:px-6 py-1 lg:py-2 border-black hidden sm:flex"
+            className="text-xs lg:text-sm px-3 lg:px-11 py-1 lg:py-2 border-black hidden sm:flex"
           >
             <span className="text-black font-semibold">Log in</span>
           </Button>
