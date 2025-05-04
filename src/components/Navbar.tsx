@@ -70,7 +70,7 @@ const Navbar = () => {
     title: "🧩 Bingo",
     
     description: "Gamified travel experiences to check off your bucket list and gain some exclusive rewards.",
-    link: "/eco",
+    link: "/bingo",
   },
 ].map(({ title, description, link }) => (
   <Link
