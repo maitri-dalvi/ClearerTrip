@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Clearertrip",
+  title: "Cleartrip: #1 Site for Booking Hotels, Flights & Buses Online",
   description: "Clearertrip",
 }
 
