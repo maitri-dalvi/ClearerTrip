@@ -310,7 +310,7 @@ export default function TravelBingo(): JSX.Element {
     return (
       <main className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
         <Navbar />
-        <div className='flex items-center justify-center pt-30'>
+        <div className='flex items-center justify-center pt-37'>
           {/* Welcome Card */}
         <Card className="w-full max-w-md rounded-3xl shadow-2xl border border-muted">
           <CardHeader>
