@@ -44,7 +44,7 @@ export default function SavingsCard() {
           <Card className="border rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[110px] w-full">
             <CardContent className="p-2 relative h-full">
               <p className="text-xs text-gray-700 leading-snug pr-6">
-                Up to 10% extra discount for Flipkart & Myntra shoppers
+                Up to 10% extra discount for Flipkart shoppers
               </p>
               <div className="absolute bottom-2 right-2">
                 <Image src="/loyaltyLoggedoutLogo.png" alt="Flipkart Myntra" width={20} height={20} />
