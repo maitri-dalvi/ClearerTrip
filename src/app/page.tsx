@@ -195,16 +195,14 @@ export default function Home() {
           </Card>
           </Link>
 
-          <Link href="/sbi" passHref>
           <Card className="p-0 shadow-none border-none">
             <img src="/c3.png" alt="Offer 3" className="w-full h-auto rounded-lg" />
           </Card>
-          </Link>
-          <Link href="/sbi" passHref>
+          
           <Card className="p-0 shadow-none border-none">
             <img src="/c4.png" alt="Offer 4" className="w-full h-auto rounded-lg" />
           </Card>
-          </Link>
+          
         </div>
 
         {/* HSBC Banner */}

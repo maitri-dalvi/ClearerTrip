@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { X, Heart, Sparkles } from "lucide-react";
+import { X, Heart, Sparkles, AlertCircle } from "lucide-react";
 
 // Type for a single destination card
 interface Destination {
@@ -25,6 +25,15 @@ interface FormData {
   expectations: string;
 }
 
+// Type for form field errors
+interface FormErrors {
+  mood?: string;
+  timePeriod?: string;
+  groupType?: string;
+  occasion?: string;
+  budget?: string;
+  expectations?: string;
+}
 
 // Custom information for each destination
 const destinationInfo = [
@@ -99,6 +108,7 @@ const TravelSwipe: React.FC = () => {
     expectations: "",
   });
 
+  const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [cards, setCards] = useState<Destination[]>(dummyDestinations);
   const [currentCardIndex, setCurrentCardIndex] = useState<number>(0);
@@ -108,11 +118,35 @@ const TravelSwipe: React.FC = () => {
   const [dragPosition, setDragPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Clear error when user types in a field
+    if (errors[name as keyof FormErrors]) {
+      setErrors({ ...errors, [name]: undefined });
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    let isValid = true;
+
+    // Check each field
+    Object.entries(formData).forEach(([key, value]) => {
+      if (!value.trim()) {
+        newErrors[key as keyof FormErrors] = "This field is required";
+        isValid = false;
+      }
+    });
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleSubmit = () => {
-    setSubmitted(true);
+    if (validateForm()) {
+      setSubmitted(true);
+    }
   };
 
   const handleSwipe = (liked: boolean) => {
@@ -187,6 +221,31 @@ const TravelSwipe: React.FC = () => {
     window.location.href = "/";
   }
 
+  const renderInput = (name: keyof FormData, placeholder: string) => {
+    return (
+      <div className="relative">
+        <Input
+          placeholder={placeholder}
+          name={name}
+          value={formData[name]}
+          onChange={handleChange}
+          className={`pl-3 py-5 rounded-xl ${
+            errors[name] 
+              ? "border-red-300 focus:border-red-500 focus:ring-red-300" 
+              : "border-blue-200 focus:border-purple-400 focus:ring-purple-300"
+          }`}
+          required
+        />
+        {errors[name] && (
+          <div className="text-red-500 text-xs mt-1 flex items-center">
+            <AlertCircle size={12} className="mr-1" />
+            {errors[name]}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <main className="h-screen overflow-hidden bg-gradient-to-b from-purple-50 to-blue-50 flex flex-col">
       <Navbar />
@@ -197,64 +256,17 @@ const TravelSwipe: React.FC = () => {
               <h2 className="text-2xl font-bold text-center mb-5 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
                 Find Your Dream Destination
               </h2>
-              
+
               <div className="grid gap-4">
-                <div className="relative">
-                  <Input 
-                    placeholder="Mood (e.g., Chill, Adventure)" 
-                    name="mood" 
-                    onChange={handleChange} 
-                    className="pl-3 py-5 rounded-xl border-blue-200 focus:border-purple-400 focus:ring-purple-300"
-                  />
-                </div>
+                {renderInput("mood", "Mood (e.g., Chill, Adventure)")}
+                {renderInput("timePeriod", "Time Period (e.g., 4 days)")}
+                {renderInput("groupType", "Family or Friends?")}
+                {renderInput("occasion", "Occasion (e.g., Birthday)")}
+                {renderInput("budget", "Approx Budget (e.g., $500)")}
+                {renderInput("expectations", "What are your expectations? (e.g., Relaxing)")}
                 
-                <div className="relative">
-                  <Input 
-                    placeholder="Time Period (e.g., 4 days)" 
-                    name="timePeriod" 
-                    onChange={handleChange} 
-                    className="pl-3 py-5 rounded-xl border-blue-200 focus:border-purple-400 focus:ring-purple-300"
-                  />
-                </div>
-                
-                <div className="relative">
-                  <Input 
-                    placeholder="Family or Friends?" 
-                    name="groupType" 
-                    onChange={handleChange} 
-                    className="pl-3 py-5 rounded-xl border-blue-200 focus:border-purple-400 focus:ring-purple-300"
-                  />
-                </div>
-                
-                <div className="relative">
-                  <Input 
-                    placeholder="Occasion (e.g., Birthday)" 
-                    name="occasion" 
-                    onChange={handleChange} 
-                    className="pl-3 py-5 rounded-xl border-blue-200 focus:border-purple-400 focus:ring-purple-300"
-                  />
-                </div>
-                
-                <div className="relative">
-                  <Input 
-                    placeholder="Approx Budget (e.g., $500)" 
-                    name="budget" 
-                    onChange={handleChange} 
-                    className="pl-3 py-5 rounded-xl border-blue-200 focus:border-purple-400 focus:ring-purple-300"
-                  />
-                </div>
-                
-                <div className="relative">
-                  <Input 
-                    placeholder="What are your expectations? (e.g., Relaxing)" 
-                    name="expectations" 
-                    onChange={handleChange} 
-                    className="pl-3 py-5 rounded-xl border-blue-200 focus:border-purple-400 focus:ring-purple-300"
-                  />
-                </div>
-                
-                <Button 
-                  className="w-full mt-2 py-5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-xl flex items-center justify-center gap-2 text-lg font-medium shadow-md transition-all duration-300 hover:shadow-lg" 
+                <Button
+                  className="w-full mt-2 py-5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-xl flex items-center justify-center gap-2 text-lg font-medium shadow-md transition-all duration-300 hover:shadow-lg"
                   onClick={handleSubmit}
                 >
                   <Sparkles size={20} />
